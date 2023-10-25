@@ -165,6 +165,20 @@ while True:
             cnv.drawString(50, 180,
                            '-----------------------------------------------------------------------------------------')
 
+        # função de alerta
+        def alerta():
+            alerta = [
+
+                [sg.Text('Ficha de treino gerada em c:/Downloads', text_color='green',size=(33,4),auto_size_text=False)],
+            ]
+
+            # Janela alerta
+            janela_alerta = sg.Window('Gerado com Sucesso!', alerta)
+            while True:
+                janela_alerta.read()
+                break
+
+
         # Escrever no PDF
         cnv.setFont(*titulo_estilo)
         cnv.drawString(230, 800, 'FICHA DE TREINO')
@@ -180,4 +194,5 @@ while True:
         cnv.setFont(*cabecalho_estilo)
         gera_tabela()
         cnv.save()
+        alerta()
         break
